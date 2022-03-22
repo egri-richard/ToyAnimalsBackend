@@ -53,7 +53,7 @@ class ToyController extends Controller
      */
     public function update(Request $request, Toy $toy)
     {
-        $new = new Toy();
+        $new = Toy::findOrFail($toy->id);
 
         $new->fill($request->only(['name']));
         $new->save();
